@@ -1,0 +1,36 @@
+.list-line {
+  width: 400px; /* 초기 크기 */
+  transition: width 1s; /* 트랜지션 속성과 지속 시간 설정 */
+  box-sizing: border-box; /* 요소 크기에 테두리와 패딩을 포함 */
+}
+
+.list-line img {
+  width: 100%;
+  height: auto;
+  transition: transform 1s; /* 이미지의 트랜지션 속성과 지속 시간 설정 */
+  display: block; /* 이미지를 블록 요소로 표시하여 여백을 제거 */
+  box-sizing: border-box; /* 요소 크기에 테두리와 패딩을 포함 */
+}
+
+
+.list-line.animate img {
+  transform: scale(1.5); /* 애니메이션이 시작될 때 이미지가 서서히 커지는 효과 */
+}
+
+.floating-div {
+    color: white;
+      width: 100px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(-50px); /* 초기에 아래로 내려가 있는 상태로 설정 */
+      transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    }
+.floating-div span{
+    font-family: 'KOTRAHOPE';
+    font-size: 60px;
+}
+
+    .show {
+      opacity: 1;
+      transform: translateY(0); /* 위로 떠오르는 상태로 설정 */
+    }

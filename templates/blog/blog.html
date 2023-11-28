@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block content %}
+<head>
+<style>
+        body {
+            background-image: url({% static 'img/Laptop.png' %});
+            background-size: cover;
+            background-attachment: fixed; /* 배경 이미지를 고정시킵니다. */
+        }
+    </style>
+    <meta charset="UTF-8">
+    <title>blog_test</title>
+</head>
+<body>
+{{ for  }}
+<div style="height: 100%; ">
+<div class="container_y" style="height: 60px; padding-top: 100px ">
+    <div style="margin-left: 20px; margin-top: 50px">
+        <img style="height: 300px; opacity: 1" src="{% static 'img/DoDay5.png'%}">
+    </div>
+    {% include "blog/blog_bar.html" %}
+</div>
+<div class="container2" style="height: 535px">
+    <span class="font_set" style="color: white; font-size: 60px; margin-right: 20px">🏷️ 웹문서에 최적화된 독특한 HTML 태그 10가지</span>
+        </div>
+    <div>
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255, 255, 255,0.7)"/>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255, 255, 255,0.5)"/>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255, 255, 255,0.3)"/>
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(255, 255, 255,1)"/>
+        </g>
+</svg></div></div>
+<div style="background-color: #cccccc; z-index: -2;">
+<div class="container2 blog_shadow" style="padding-top: 50px; padding-bottom: 50px;
+margin-bottom: 10px; background-color: white">
+        <div class="blog_index blog_shadow">
+            <div class="blog_index_box"><div class="bar_font blog_index_font" style="color: black; font-size: 25px">
+                <div style="margin-right: 5px">📒</div>목차
+            </div></div>
+            <a href="#targetDiv"><div class="blog_index_box">
+                <div class="blog_index_font blog_index_hover">
+                    <div style="margin-right: 5px">●</div>마우스 드래그 애니메이션
+                </div>
+            </div></a>
+        </div>
+    </div>
+    </div>
+
+<div id="targetDiv" class="container2 blog_shadow" style="padding-top: 50px; padding-bottom: 50px;
+margin-bottom: 10px; background-color: white">
+    <div>
+    <div class="blog_subtitle" style="border-bottom: #fccd4e solid 1px">마우스 드래그 애니메이션</div>
+        <div class="blog_subtitle" style="font-size: 14px;">드래그를 이용한 다양한 애니메이션</div>
+    <div style="width: 900px">
+        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vYbGOrK" data-editable="true" data-user="umxmgrsc-the-lessful" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+  <span>See the Pen <a href="https://codepen.io/umxmgrsc-the-lessful/pen/vYbGOrK">
+  Parallax scroll animation</a> by 박종우 (<a href="https://codepen.io/umxmgrsc-the-lessful">@umxmgrsc-the-lessful</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></div>
+    </div></div>
+
+
+</body>
+{%  endblock %}
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block content %}
+<head>
+<style>
+</style>
+    <meta charset="UTF-8">
+    <title>DoDay!blog</title>
+<style>
+    .menu :where(li ul){
+        padding-left: 0 !important;
+    }
+</style>
+</head>
+<body>
+<div class="box">
+<div style="position: absolute; z-index: -1;" class="image-container">
+    <img src="{% static 'img/blog_image_set.png' %}"></div>
+<div class="container_y" style="height: 60px; padding-top: 100px ">
+    <div style="margin-left: 20px; margin-top: 50px">
+        <img style="height: 300px; opacity: 1" src="{% static 'img/DoDay5.png'%}">
+    </div>
+    {% include "blog/blog_bar.html" %}
+</div>
+<div style="height: 200px"></div>
+<div class="container2">
+    <span class="font_set" style="color: #f7ca8d; font-size: 100px; margin-right: 20px">Hellow</span>
+        <span class="blog_main_font" id="textContainer" style="color: #f7ca8d; font-size: 70px; font-weight: bold">World!</span></div>
+</div>
+    <div class="box">
+<div style="position: absolute; z-index: -1;" class="image-container">
+    <img src="{% static 'img/blog_page22.png' %}"></div>
+<div class="container2">
+        <div style="width: 1000px; margin-top: 20px; margin-bottom: 20px; padding-left: 10px; display: flex">
+            <div>
+            <span class="span_font" style="color: #f7ca8d; font-weight: bold; font-size: 30pt"> 📚Recent post</span>
+            <span class="span_font" style="color: gray; font-size: 15px">따끈따근 하게 올라온 최신 포스팅을 구경해보세요 !</span>
+            </div>
+        </div></div>
+<div class="container2">
+        {% include "page_3.html" %}
+    </div>
+    </div>
+<div class="box">
+<div style="position: absolute; z-index: -1;" class="image-container">
+    <img src="{% static 'img/check.png' %}"></div>
+    <div class="container2" style="padding-top: 50px">
+        <span class="span_font" style="color: #f7ca8d; font-weight: bold; font-size: 30pt; margin-right: 20px"> 📚Popular Categories</span>
+            <span class="span_font" style="color: gray; font-size: 15px; padding-top: 10px">잘 정리된 다양한 카테고리를 둘러보세요 !</span></div>
+    <div class="container2" style="margin-top: 100px">
+        <div>
+        <div class="container2" style="width: 1000px; top: 50%; justify-content: space-around">
+            <a href="#">
+            <div class="page3_box blog_set1 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/django.png' %}"></div>
+                <div class="container2"><span class="pg3_font">Django</span></div></div>
+            </div></a>
+            <a href="#">
+            <div class="page3_box blog_set1 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/spring.png' %}"></div>
+                <div class="container2"><span class="pg3_font">Spring</span></div></div>
+            </div></a>
+            <a href="#">
+            <div class="page3_box blog_set1 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/aws.png' %}"></div>
+                <div class="container2"><span class="pg3_font">Server</span></div></div>
+            </div></a>
+            <a href="#">
+            <div class="page3_box blog_set1 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/html.png' %}"></div>
+                <div class="container2"><span class="pg3_font">Html</span></div></div>
+            </div></a>
+        </div>
+            <div class="container2" style="margin-top: 70px; width: 1000px; top: 50%; justify-content: space-around">
+            <a href="#">
+            <div class="page3_box blog_set2 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/git.png' %}"></div>
+                <div class="container2"><span class="pg3_font">Git</span></div></div>
+            </div></a>
+            <a href="#">
+            <div class="page3_box blog_set2 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/css.png' %}"></div>
+                <div class="container2"><span class="pg3_font">CSS</span></div></div>
+            </div></a>
+            <a href="#">
+            <div class="page3_box blog_set2 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/javascript.png' %}"></div>
+                <div class="container2"><span class="pg3_font">JavaScript</span></div></div>
+            </div></a>
+            <a href="#">
+            <div class="page3_box blog_set2 hover-shadow container2">
+                <div>
+                    <div class="container2">
+                <img style="height: 50%; width: 50%" src="{% static 'img/beginner.png' %}"></div>
+                <div class="container2"><span class="pg3_font">Beginner</span></div></div>
+            </div></a>
+        </div>
+            </div>
+    </div>
+</div>
+</body>
+{%  endblock %}
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <title></title>
+</head>
+<body>
+    <div style="position: absolute; z-index: -1;" class="image-container">
+    <img src="{% static 'img/blog_list.jpg' %}"></div>
+<div class="container_y" style="height: 60px; padding-top: 100px ">
+    <div style="margin-left: 20px; margin-top: 50px">
+        <img style="height: 300px; opacity: 1" src="{% static 'img/DoDay5.png'%}">
+    </div>
+    {% include "blog/blog_bar.html" %}
+</div>
+<div class="container2" style="margin-top: 100px">
+<div class="container2" style="width: 1000px">
+<div style="display: block;">
+    <div class="floating-div container2" id="animatedDiv" style="width: 100%">
+        <span>Post List</span>
+    </div>
+<div class="list-line">
+<img src="{% static 'img/list_bottom_line.png' %}"></div>
+</div>
+</div>
+</div>
+{% endblock %}
+</body>
+</html>

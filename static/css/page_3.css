@@ -1,0 +1,36 @@
+.hover-shadow {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+    transform: translateY(0);
+background-color: #fcf6e6}
+
+.hover-shadow:hover {
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-8px);
+    background-color: #faefcf
+;
+
+}
+@keyframes page3 {
+    0% { }
+    100% { margin-bottom: 10px;}
+}
+.cate_icon{
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #faeecf;
+}
+.cate_icon > span {
+    color: #fccd4e;
+}
+.cate_icon:hover{
+    background-color: #ffc52b;
+    text-decoration: none;
+    color: white;
+}
+.cate_icon:hover span {
+    color: white;
+}
+.blog_go:hover{
+    font-weight: bold;
+}

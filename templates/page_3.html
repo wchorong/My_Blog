@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% block content %}
+<body>
+<div class="container2 blog_set" style="width: 1000px; height: 600px;">
+    <a href="#">
+        <div class="blog_set hover-shadow" style="width: 475px; height: 600px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 250px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 30px; width: 400px; height: 250px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 23px; height: 80px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 165px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div>
+
+            <div class="container_y" style="width: 400px; margin-top: 20px">
+            <div style="display: flex;">
+                <div style="margin-right: 8px;"><img style="height: 25px;" src="{% static 'img/comment.png' %}"></div>
+                <span style="color: gray; font-weight: normal; font-size: 15px; margin-bottom: 10px">42</span>
+            </div></div></div></div>
+
+        </div></a>
+            <div style="display: flex; flex-direction: column; width: 475px; height: 600px; margin-left: 50px;">
+                <div class="blog_set1 hover-shadow container2" style="width: 475px; height: 175px; margin-bottom: 35px;
+                border: lightgray solid 0.5px;  border-radius: 25px;">
+                    <div style="width: 300px; height: 140px;">
+                        <div style="height:20%" class="container_y">
+                            {% include "cate_icon.html" %}
+                        </div>
+                        <a href="#">
+                        <div style="height: 60%; word-wrap: break-word; padding-top: 7px">
+                            <div class="span_font" style="font-size: 18px; font-weight: bold; color: black;">
+                                🤔 스레드를 많이 쓸수록 항상 성능이 좋아질까?</div>
+                        </div>
+                        {% include "comn_icon.html" %}
+                        </a></div>
+                    <div style="height: 140px; width: 120px; overflow: hidden; margin-left: 20px; border-radius: 15px;">
+                        <img style="height: 100%; max-width: none;" src="{% static 'img/blog_page2.png' %}"></div>
+                </div>
+                <div class="blog_set2 hover-shadow container2" style="width: 475px; height: 175px; margin-bottom: 35px;
+                border: lightgray solid 0.5px;  border-radius: 25px">
+                    <div style="width: 300px; height: 140px;">
+                        <div style="height:20%" class="container_y">
+                            {% include "cate_icon.html" %}
+                        </div>
+                        <a href="#">
+                        <div style="height: 60%; word-wrap: break-word; padding-top: 7px">
+                            <div class="span_font" style="font-size: 18px; font-weight: bold; color: black;">
+                                🤔 스레드를 많이 쓸수록 항상 성능이 좋아질까?</div>
+                        </div>
+                        {% include "comn_icon.html" %}
+                        </a></div>
+                    <div style="height: 140px; width: 120px; overflow: hidden; margin-left: 20px; border-radius: 15px;">
+                        <img style="height: 100%; max-width: none;" src="{% static 'img/blog_page2.png' %}"></div>
+                </div>
+                <div class="blog_set3 hover-shadow container2" style="width: 475px; height: 175px;
+                border: lightgray solid 0.5px;  border-radius: 25px">
+                    <div style="width: 300px; height: 140px;">
+                        <div style="height:20%" class="container_y">
+                            {% include "cate_icon.html" %}
+                        </div>
+                        <a href="#">
+                        <div style="height: 60%; word-wrap: break-word; padding-top: 7px">
+                            <div class="span_font" style="font-size: 18px; font-weight: bold; color: black;">
+                                🤔 스레드를 많이 쓸수록 항상 성능이 좋아질까?</div>
+                        </div>
+                        {% include "comn_icon.html" %}
+                        </a></div>
+                    <div style="height: 140px; width: 120px; overflow: hidden; margin-left: 20px; border-radius: 15px;">
+                        <img style="height: 100%; max-width: none;" src="{% static 'img/blog_page2.png' %}"></div>
+                </div>
+            </div>
+        </div>
+</body>
+{% endblock %}
+</html>
