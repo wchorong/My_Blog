@@ -12,15 +12,27 @@
     .menu :where(li ul){
         padding-left: 0 !important;
     }
+
+    .image1{
+        background-image: url({% static 'img/blog_image_set.png' %});
+        background-size: cover;
+    }
+    .image2{
+        background-image: url({% static 'img/blog_page22.png' %});
+        background-size: cover;
+    }
+    .image3{
+        background-image: url({% static 'img/check.png' %});
+        background-size: cover;
+    }
 </style>
     <link rel="stylesheet" href="{% static 'css/main_font.css' %}" />
 <script defer src="{% static 'js/blog/blog_main.js' %}"></script>
 <script defer src="{% static 'js/main_font.js' %}"></script>
 </head>
 <body>
-<div class="box">
-<div style="position: absolute; z-index: -1;" class="image-container">
-    <img src="{% static 'img/blog_image_set.png' %}"></div>
+<div class="box image1">
+
 <div class="container_y" style="height: 60px; padding-top: 100px ">
     <a href="{% url 'main:blog' %}">
     <div style="margin-left: 20px; margin-top: 50px">
@@ -39,12 +51,11 @@
         <img width="100px" src="{% static "img/main_arrow.png" %}"></div>
     </div>
 </div>
-    <div class="box">
-<div style="position: absolute; z-index: -1;" class="image-container">
-    <img src="{% static 'img/blog_page22.png' %}"></div>
-        <div style="height: 100%">
+    <div class="box image2">
+        <div class="container2" style="height: 100%">
+            <div>
 <div class="container2">
-        <div style="width: 1000px; margin-top: 20px; margin-bottom: 20px; padding-left: 10px; display: flex">
+        <div style="width: 1000px; margin-bottom: 20px; padding-left: 10px; display: flex">
             <div>
             <span class="span_font" style="color: #f7ca8d; font-weight: bold; font-size: 30pt"> 📚Recent post</span>
             <span class="span_font" style="color: gray; font-size: 15px">따끈따근 하게 올라온 최신 포스팅을 구경해보세요 !</span>
@@ -54,15 +65,15 @@
         {% include "page_3.html" %}
     </div>
     </div>
+            </div>
         </div>
-<div class="box">
-<div style="position: absolute; z-index: -1;" class="image-container">
-    <img src="{% static 'img/check.png' %}"></div>
-    <div style="height: 100%">
-    <div class="container2" style="padding-top: 50px">
+<div class="box image3">
+    <div class="container2" style="height: 100%">
+        <div>
+    <div class="container2">
         <span class="span_font" style="color: #f7ca8d; font-weight: bold; font-size: 30pt; margin-right: 20px"> 📚Popular Categories</span>
             <span class="span_font" style="color: gray; font-size: 15px; padding-top: 10px">잘 정리된 다양한 카테고리를 둘러보세요 !</span></div>
-    <div class="container2" style="margin-top: 100px">
+    <div class="container2" style="margin-top: 80px">
         <div>
         <div class="container2" style="width: 1000px; top: 50%; justify-content: space-around">
             <a href="#">
@@ -127,6 +138,7 @@
             </div>
     </div>
 </div>
+    </div>
     </div>
 </body>
 {%  endblock %}
