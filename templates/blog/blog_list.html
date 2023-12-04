@@ -3,20 +3,32 @@
 {% extends "blog/blog_base.html" %}
 {% load static %}
 {% block content %}
-<head>
-    <title></title>
+    <head>
+    <link rel="stylesheet" href="{% static 'css/blog/blog_list.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/blog/blog_list_main_font.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+        body {
+            background-image: url({% static 'img/blog_list.jpg' %});
+            background-color: rgba(252, 224, 179, 1);
+            background-size: cover;
+            background-attachment: fixed; /* 배경 이미지를 고정시킵니다. */
+        }
+    </style>
+    <title>List</title>
 </head>
 <body>
-    <div style="position: absolute; z-index: -1;" class="image-container">
-    <img src="{% static 'img/blog_list.jpg' %}"></div>
+<div style="height: 90%;position: relative;">
 <div class="container_y" style="height: 60px; padding-top: 100px ">
+    <a href="{% url 'main:blog' %}">
     <div style="margin-left: 20px; margin-top: 50px">
-        <img style="height: 300px; opacity: 1" src="{% static 'img/DoDay5.png'%}">
-    </div>
+        <img style="height: 300px; opacity: 1; max-width: none" src="{% static 'img/DoDay5.png'%}">
+    </div></a>
     {% include "blog/blog_bar.html" %}
 </div>
-<div class="container2" style="margin-top: 100px">
-<div class="container2" style="width: 1000px">
+<div class="container2">
+    <div class="container2" style="margin-top: 110px">
+<div class="container2" style="width: 1200px">
 <div style="display: block;">
     <div class="floating-div container2" id="animatedDiv" style="width: 100%">
         <span>Post List</span>
@@ -26,6 +38,135 @@
 </div>
 </div>
 </div>
+        </div>
+    <div class="search-wrapper" style="margin-top: 100px">
+    <div class="input-holder">
+        <input type="text" class="search-input" placeholder="Type to search" />
+        <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+    </div>
+    <span class="close" onclick="searchToggle(this, event);"></span>
+</div>
+    <div style="position: absolute;
+      bottom: 0;
+      width: 100%;">
+<svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+            <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(252, 224, 179,0.7)"/>
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(252, 224, 179,0.5)"/>
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(252, 224, 179,0.3)"/>
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="rgba(252, 224, 179,0.8)"/>
+        </g>
+</svg></div></div>
+    <div style="background-color: rgba(255, 233, 199, 1);">
+    <div style="padding-top: 20px; padding-bottom: 100px">
+        <div class="container2" style="margin-bottom: 30px">
+        <div class="typing-demo">
+      Knowledge is power.
+    </div></div>
+        <div class="container2">
+    <div class="list_con" style="width: 1120px">
+        <div class="scrolling-div">
+            <a href="{% url 'main:blog_post' %}">
+    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 200px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 18px; height: 60px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div></div></div></div></a></div>
+    <div class="scrolling-div">
+    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 200px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 18px; height: 60px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div></div></div></div></div>
+    <div class="scrolling-div">
+    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 200px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 18px; height: 60px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div></div></div></div></div>
+        <div class="scrolling-div">
+    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 200px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 18px; height: 60px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div></div></div></div></div>
+    <div class="scrolling-div">
+    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 200px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 18px; height: 60px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div></div></div></div></div>
+    <div class="scrolling-div">
+    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
+            <div style="height: 200px; position: relative; overflow: hidden">
+                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+            <div class="container2">
+                <div>
+            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
+                <div style="color: black;
+             font-weight: bold; font-size: 18px; height: 60px">
+                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
+                 overflow: hidden; text-overflow: ellipsis;">
+                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
+                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
+                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+            </div></div></div></div></div>
+
+    </div></div></div></div>
 {% endblock %}
 </body>
 </html>

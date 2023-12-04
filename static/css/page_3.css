@@ -7,8 +7,7 @@ background-color: #fcf6e6}
 .hover-shadow:hover {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-8px);
-    background-color: #faefcf
-;
+    background-color: #faefcf;
 
 }
 @keyframes page3 {

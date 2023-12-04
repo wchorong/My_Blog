@@ -16,17 +16,20 @@
 </head>
 <body>
 {{ for  }}
-<div style="height: 100%; ">
+<div style="height: 100%; position: relative; ">
 <div class="container_y" style="height: 60px; padding-top: 100px ">
+    <a href="{% url 'main:blog' %}">
     <div style="margin-left: 20px; margin-top: 50px">
-        <img style="height: 300px; opacity: 1" src="{% static 'img/DoDay5.png'%}">
-    </div>
+        <img style="height: 300px; opacity: 1; max-width: none" src="{% static 'img/DoDay5.png'%}">
+    </div></a>
     {% include "blog/blog_bar.html" %}
 </div>
 <div class="container2" style="height: 535px">
     <span class="font_set" style="color: white; font-size: 60px; margin-right: 20px">🏷️ 웹문서에 최적화된 독특한 HTML 태그 10가지</span>
         </div>
-    <div>
+    <div style="position: absolute;
+      bottom: 0;
+      width: 100%;">
 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
         <defs>
             <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>

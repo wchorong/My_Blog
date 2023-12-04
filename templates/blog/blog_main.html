@@ -13,21 +13,30 @@
         padding-left: 0 !important;
     }
 </style>
+    <link rel="stylesheet" href="{% static 'css/main_font.css' %}" />
+<script defer src="{% static 'js/blog/blog_main.js' %}"></script>
+<script defer src="{% static 'js/main_font.js' %}"></script>
 </head>
 <body>
 <div class="box">
 <div style="position: absolute; z-index: -1;" class="image-container">
     <img src="{% static 'img/blog_image_set.png' %}"></div>
 <div class="container_y" style="height: 60px; padding-top: 100px ">
+    <a href="{% url 'main:blog' %}">
     <div style="margin-left: 20px; margin-top: 50px">
-        <img style="height: 300px; opacity: 1" src="{% static 'img/DoDay5.png'%}">
-    </div>
+        <img style="height: 300px; opacity: 1; max-width: none" src="{% static 'img/DoDay5.png'%}">
+    </div></a>
     {% include "blog/blog_bar.html" %}
 </div>
-<div style="height: 200px"></div>
-<div class="container2">
-    <span class="font_set" style="color: #f7ca8d; font-size: 100px; margin-right: 20px">Hellow</span>
-        <span class="blog_main_font" id="textContainer" style="color: #f7ca8d; font-size: 70px; font-weight: bold">World!</span></div>
+<div style="height: 150px"></div>
+<div class="container" style="font-size: 30px">
+    <p>Coding is <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+  </div>
+
+    <div class="moving-box">
+        <div class="moving-div">
+        <img width="100px" src="{% static "img/main_arrow.png" %}"></div>
+    </div>
 </div>
     <div class="box">
 <div style="position: absolute; z-index: -1;" class="image-container">
@@ -73,7 +82,7 @@
                 <img style="height: 50%; width: 50%" src="{% static 'img/aws.png' %}"></div>
                 <div class="container2"><span class="pg3_font">Server</span></div></div>
             </div></a>
-            <a href="#">
+            <a href="{% url 'main:blog_list' %}">
             <div class="page3_box blog_set1 hover-shadow container2">
                 <div>
                     <div class="container2">

@@ -53,7 +53,6 @@ a:hover {
   opacity: 0; /* 초기에는 투명한 상태 */
   animation: fadeIn 2s ease-in-out forwards;
 }
-.move p { animation:fade_in .5s  1s forwards;  }
 
 @keyframes fadeIn {
   from {
