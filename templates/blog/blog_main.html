@@ -26,7 +26,7 @@
     <div style="margin-left: 20px; margin-top: 50px">
         <img style="height: 300px; opacity: 1; max-width: none" src="{% static 'img/DoDay5.png'%}">
     </div></a>
-    <div style="left: 60%;transform: translateX(-60%); position: absolute">
+    <div style="left: 55%;transform: translateX(-55%); position: absolute">
     {% include "blog/blog_bar.html" %}</div>
 </div>
 <div style="height: 150px"></div>
@@ -42,6 +42,7 @@
     <div class="box">
 <div style="position: absolute; z-index: -1;" class="image-container">
     <img src="{% static 'img/blog_page22.png' %}"></div>
+        <div style="height: 100%">
 <div class="container2">
         <div style="width: 1000px; margin-top: 20px; margin-bottom: 20px; padding-left: 10px; display: flex">
             <div>
@@ -53,9 +54,11 @@
         {% include "page_3.html" %}
     </div>
     </div>
+        </div>
 <div class="box">
 <div style="position: absolute; z-index: -1;" class="image-container">
     <img src="{% static 'img/check.png' %}"></div>
+    <div style="height: 100%">
     <div class="container2" style="padding-top: 50px">
         <span class="span_font" style="color: #f7ca8d; font-weight: bold; font-size: 30pt; margin-right: 20px"> 📚Popular Categories</span>
             <span class="span_font" style="color: gray; font-size: 15px; padding-top: 10px">잘 정리된 다양한 카테고리를 둘러보세요 !</span></div>
@@ -124,6 +127,7 @@
             </div>
     </div>
 </div>
+    </div>
 </body>
 {%  endblock %}
 </html>
