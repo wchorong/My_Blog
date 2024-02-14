@@ -19,3 +19,9 @@ class Blog_list(APIView):
 
     def get(self, reqeust):
         return Response(status=status.HTTP_200_OK, template_name='blog/blog_list.html')
+
+class Blog_crud(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+
+    def get(self, reqeust):
+        return Response(status=status.HTTP_200_OK, template_name='blog/CRUD.html')

@@ -39,3 +39,7 @@ class Title_Serializer(serializers.ModelSerializer):
                                    category=Cat,
                                    )
         return bool
+
+# class CRUD_Serializer(serializers.ModelSerializer):
+#     class Meta:
+#         model =

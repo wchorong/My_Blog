@@ -1,13 +1,9 @@
 from django.contrib import admin
-from . import models
+from main.models import Blog
+from main.models import Sub_blog
 
-@admin.register(models.User)
-class UserAdmin(admin.ModelAdmin):
+class AuthorAdmin(admin.ModelAdmin):
+    pass
 
-    list_display = (
-        'number',
-    )
 
-    list_display_links = (
-        'number',
-    )
+admin.site.register(Sub_blog, AuthorAdmin)
