@@ -6,12 +6,39 @@
 <head>
     <meta charset="UTF-8">
     <title>게시글 작성</title>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link rel="stylesheet" href="{% static 'css/blog/blog_post_style.css' %}" />
 </head>
 <body>
-{% extends "admin/base_site.html" %}
-<script>window.CKEDITOR_BASEPATH = '/static/ckeditor/ckeditor/';</script>
-{{ block.super }}
-{% endblock %}
+<div class="container2" style="margin-top: 40px; margin-bottom: 40px">
+    <span class="span_font" style="font-weight: bold; font-size: 50px; color: #27AE60;">Write a post.</span>
+
+</div>
+<form action="{% url 'main:blog_crud' %}" method="POST" novalidate class="container2">
+        {% csrf_token %}
+    <div>
+    <div style="margin-bottom: 40px;">
+        <label for="subtitle" class="span_font crud_label">Title</label>
+        <input class="title span_font" style="margin-top: 10px" type="text" id="subtitle" name="subtitle" required
+                    value="{{ form.subtitle.value|default_if_none:'' }}"></div>
+    <div style="display: block; margin-bottom: 40px" >
+        <div style="margin-bottom: 10px;">
+        <span class="span_font" style="font-size: 20px; font-weight: bold">Content</span></div>
+    {{ crud.content }}</div>
+    <div style="margin-bottom: 40px">
+        <label for="codepen" class="span_font crud_label">Code pen</label>
+    <textarea style="margin-top: 10px" class="codepen" id="codepen" name="codepen">
+        {{ form.codepen.value|default_if_none:'' }}
+    </textarea></div>
+    <div>
+    <label for="codepen" class="span_font crud_label">Title image</label>
+    <input  style="margin-top: 10px" type="file" class="form-control" name="img" id="img"></div>
+        <div class="container2" style="margin-top: 20px">
+            <div class="crud_button container2">
+        <button type="submit">MAKE</button></div></div>
+</div>
+</form>
 </body>
 {% endblock %}
 </html>

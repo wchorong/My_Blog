@@ -12,28 +12,33 @@
             <li><a href="#"><span class="blog_bar_font container2" style="color: #f7ca8d; font-size: 25px; opacity: 0.7">Stack
         <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
-                    <li><a class="bar_font" href="#">Django</a></li>
-                    <li><a class="bar_font" href="#">Spring</a></li>
-                    <li><a class="bar_font" href="#">Server</a></li>
+                    {% for stack in stack %}
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=stack.category_name %}">{{ stack.category_name }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
             <li><a href="#"><span class="blog_bar_font container2" style="color: #f7ca8d; font-size: 25px; opacity: 0.7">lenguge
         <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
-                    <li><a class="bar_font" href="#">Python</a></li>
-                    <li><a class="bar_font" href="#">Java</a></li>
+                    {% for lenguge in lenguge %}
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=lenguge.category_name %}">{{ lenguge.category_name }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
             <li><a href="#"><span class="blog_bar_font container2" style="color: #f7ca8d; font-size: 25px; opacity: 0.7">CSS
     <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
-                    <li><a class="bar_font" href="#">DS</a></li>
+                    {% for css in css %}
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=css.category_name %}">{{ css.category_name }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
         <li><a href="#"><span class="blog_bar_font container2" style="color: #f7ca8d; font-size: 25px; opacity: 0.7">Basic
     <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
-                    <li><a class="bar_font" href="#">Django Beginner</a></li>
+                    {% for basic in basic %}
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=basic.category_name %}">{{ basic.category_name }}</a></li>
+                    {% endfor %}
                 </ul>
             </li>
         </ul></div>

@@ -1,27 +1,81 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rest_framework import status
 from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+
+from main.models import Category
+from main.serializer import Blog_Serializer, Category_serializer
+from main.forms import PostAdminForm
+
 
 class Blog(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, reqeust):
-        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html')
+        stack = Category.objects.filter(category_title="Stack")
+        language = Category.objects.filter(category_title="Language")
+        css = Category.objects.filter(category_title="CSS")
+        basic = Category.objects.filter(category_title="Basic")
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html',
+                        data={'stack': stack, 'language': language, 'css': css, 'basic': basic})
 
-class Blog_post(APIView):
+class Blog_post(APIView): # 블로그
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, reqeust):
         return Response(status=status.HTTP_200_OK, template_name='blog/blog.html')
 
-class Blog_list(APIView):
+class Blog_list(APIView): # 블로그 리스트
+    renderer_classes = [TemplateHTMLRenderer]
+
+    def get(self, reqeust, cate):
+        blog = Category.objects.get(category_name=cate)
+        stack = Category.objects.filter(category_title="Stack")
+        language = Category.objects.filter(category_title="Language")
+        css = Category.objects.filter(category_title="CSS")
+        basic = Category.objects.filter(category_title="Basic")
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_list.html',
+                        data={'stack': stack, 'language': language, 'css': css, 'basic': basic})
+
+class Blog_crud(APIView): # 블로그내 블록 추가
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, reqeust):
-        return Response(status=status.HTTP_200_OK, template_name='blog/blog_list.html')
+        crud_ser = PostAdminForm
+        return Response(status=status.HTTP_200_OK, template_name='blog/CRUD.html', data={'crud': crud_ser})
 
-class Blog_crud(APIView):
+    def post(self, reqeust):
+        form = Blog_Serializer(data=reqeust.data)
+        if form.is_valid():
+            form.save()
+        return redirect('main:main_category_make')
+
+class Main_category_make(APIView):  #카테고리 작성 페이지
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, reqeust):
-        return Response(status=status.HTTP_200_OK, template_name='blog/CRUD.html')
+        cate = Category.CATEGORY_TITLE
+        cate_set = []
+        for i in cate:
+            cate_set.append(i[0])
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main_cate.html', data={'cate': cate_set})
+
+    def post(self, reqeust):
+        form = Category_serializer(data=reqeust.data)
+        if form.is_valid():
+            form.save()
+            return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html')
+        return redirect('main:main_category_make')
+
+class Blog_list_crud(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    renderer_classes = [TemplateHTMLRenderer]
+
+    def get(self, reqeust):
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html')

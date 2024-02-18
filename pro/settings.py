@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'main',
     'account',
+    'rest_framework',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +56,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'pro.urls'
-
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

@@ -12,7 +12,7 @@ class BaseModel(models.Model):
         abstract = True
 
 class Category(models.Model): # 상위 카테고리
-    category_name = models.CharField(max_length=50)
+    category_name = models.CharField(max_length=50, unique=True)
     CATEGORY_TITLE = (
         ('Stack', 'Stack'),
         ('Language', 'Language'),
@@ -20,10 +20,16 @@ class Category(models.Model): # 상위 카테고리
         ('Basic', 'Basic'),)
     category_title = models.CharField(verbose_name='category', choices=CATEGORY_TITLE, blank=True, max_length=10)
 
+    def __str__(self):
+        return self.category_name
+
 class Blog(BaseModel): # 하위 카테고리
     title = models.CharField(max_length=50)
     img = models.ImageField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
 
 class Sub_blog(BaseModel): # 하위 카테고리 내의 글
     subtitle = models.CharField(max_length=100)

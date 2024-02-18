@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Sub_blog, Blog
+from .models import Sub_blog, Blog, Category
 
 class Blog_Serializer(serializers.ModelSerializer):
     class Meta:
@@ -31,6 +31,7 @@ class Blog_Serializer(serializers.ModelSerializer):
 class Title_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
+        fields = '__all__'
 
     def create(self, validated_data):
         Cat = self.context.get('cat')
@@ -40,6 +41,20 @@ class Title_Serializer(serializers.ModelSerializer):
                                    )
         return bool
 
-# class CRUD_Serializer(serializers.ModelSerializer):
-#     class Meta:
-#         model =
+
+class Category_serializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ("category_name", "category_title")
+
+    def create(self, validated_data):
+        bool = Category.objects.create(category_name=validated_data['category_name'],
+                                       category_title=validated_data['category_title'],
+                                       )
+        return bool
+
+    def update(self, instance, validated_data):
+        instance.category_name = validated_data.get('category_name', instance.category_name)
+        instance.category_title = validated_data.get('category_title', instance.category_title)
+        instance.save()
+        return instance
