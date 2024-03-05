@@ -25,6 +25,7 @@ class Category(models.Model): # 상위 카테고리
 
 class Blog(BaseModel): # 하위 카테고리
     title = models.CharField(max_length=50)
+    sub_title = models.TextField(blank=True)
     img = models.ImageField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
 
@@ -35,5 +36,4 @@ class Sub_blog(BaseModel): # 하위 카테고리 내의 글
     subtitle = models.CharField(max_length=100)
     content = RichTextField('내용', blank=True, null=True)
     code_set = models.TextField('Code Pen')
-    img = models.ImageField()
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)

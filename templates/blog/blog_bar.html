@@ -13,15 +13,15 @@
         <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
                     {% for stack in stack %}
-                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=stack.category_name %}">{{ stack.category_name }}</a></li>
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=stack %}">{{ stack.category_name }}</a></li>
                     {% endfor %}
                 </ul>
             </li>
-            <li><a href="#"><span class="blog_bar_font container2" style="color: #f7ca8d; font-size: 25px; opacity: 0.7">lenguge
+            <li><a href="#"><span class="blog_bar_font container2" style="color: #f7ca8d; font-size: 25px; opacity: 0.7">Lenguge
         <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
                     {% for lenguge in lenguge %}
-                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=lenguge.category_name %}">{{ lenguge.category_name }}</a></li>
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=lenguge %}">{{ lenguge.category_name }}</a></li>
                     {% endfor %}
                 </ul>
             </li>
@@ -29,7 +29,7 @@
     <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
                     {% for css in css %}
-                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=css.category_name %}">{{ css.category_name }}</a></li>
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=css %}">{{ css.category_name }}</a></li>
                     {% endfor %}
                 </ul>
             </li>
@@ -37,7 +37,7 @@
     <span style="font-size: 20px" class="degree">◀</span></span></a>
                 <ul class="submenu">
                     {% for basic in basic %}
-                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=basic.category_name %}">{{ basic.category_name }}</a></li>
+                    <li><a class="bar_font" href="{% url 'main:blog_list' cate=basic %}">{{ basic.category_name }}</a></li>
                     {% endfor %}
                 </ul>
             </li>

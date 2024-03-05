@@ -34,12 +34,18 @@ class Title_Serializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        Cat = self.context.get('cat')
+        Cat = self.context.get('cate')
         bool = Blog.objects.create(title=validated_data['title'],
                                    img=validated_data['img'],
                                    category=Cat,
                                    )
         return bool
+
+    def update(self, instance, validated_data):
+        instance.title = validated_data.get('title', instance.title)
+        instance.img = validated_data.get('img', instance.img)
+        instance.save()
+        return instance
 
 
 class Category_serializer(serializers.ModelSerializer):

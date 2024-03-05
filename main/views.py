@@ -6,37 +6,43 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 
-from main.models import Category
-from main.serializer import Blog_Serializer, Category_serializer
+from main.models import Category, Blog, Sub_blog
+from main.serializer import Blog_Serializer, Category_serializer, Title_Serializer
 from main.forms import PostAdminForm
 
 
-class Blog(APIView):
+
+class Blog_main(APIView):
     renderer_classes = [TemplateHTMLRenderer]
     def get(self, reqeust):
-        stack = Category.objects.filter(category_title="Stack")
-        language = Category.objects.filter(category_title="Language")
-        css = Category.objects.filter(category_title="CSS")
-        basic = Category.objects.filter(category_title="Basic")
+        stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(category_title="Language")
+        css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
         return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html',
                         data={'stack': stack, 'language': language, 'css': css, 'basic': basic})
 
 class Blog_post(APIView): # 블로그
     renderer_classes = [TemplateHTMLRenderer]
-    def get(self, reqeust):
-        return Response(status=status.HTTP_200_OK, template_name='blog/blog.html')
+    def get(self, reqeust, pk):
+        post = Blog.objects.get(id=pk)
+        post_box = Sub_blog.objects.filter(blog=post)
+        stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(
+            category_title="Language")
+        css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog.html',
+                        data={'post_box': post_box, 'post': post,
+                              'stack': stack, 'language': language, 'css': css, 'basic': basic})
 
 class Blog_list(APIView): # 블로그 리스트
     renderer_classes = [TemplateHTMLRenderer]
 
     def get(self, reqeust, cate):
-        blog = Category.objects.get(category_name=cate)
-        stack = Category.objects.filter(category_title="Stack")
-        language = Category.objects.filter(category_title="Language")
-        css = Category.objects.filter(category_title="CSS")
-        basic = Category.objects.filter(category_title="Basic")
+        blog_cate = Category.objects.get(category_name=cate)
+        blog = Blog.objects.filter(category=blog_cate)
+        stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(category_title="Language")
+        css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
         return Response(status=status.HTTP_200_OK, template_name='blog/blog_list.html',
-                        data={'stack': stack, 'language': language, 'css': css, 'basic': basic})
+                        data={'stack': stack, 'language': language, 'css': css, 'basic': basic, 'blog': blog,
+                              'title_name': cate})
 
 class Blog_crud(APIView): # 블로그내 블록 추가
     authentication_classes = [SessionAuthentication, BasicAuthentication]
@@ -77,5 +83,32 @@ class Blog_list_crud(APIView):
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
+    def get(self, reqeust, cate):
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_sub_cate.html')
+
+    def post(self, request, cate):
+        cat_model = Category.objects.get(category_name=cate)
+        print(cat_model)
+        form = Title_Serializer(data=request.data, context={'cate': cat_model})
+        if form.is_valid():
+            form.save()
+            return redirect('main:mypage')
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_sub_cate.html')
+
+
+
+class My_page(APIView):
+    authentication_classes = [SessionAuthentication, BasicAuthentication]
+    permission_classes = [IsAuthenticated]
+    renderer_classes = [TemplateHTMLRenderer]
+
     def get(self, reqeust):
-        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html')
+        stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(
+            category_title="Language")
+        css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
+
+        return Response(status=status.HTTP_200_OK, template_name='blog/my_page.html',
+                        data={'stack': stack, 'language': language, 'css': css, 'basic': basic})
+
+
+

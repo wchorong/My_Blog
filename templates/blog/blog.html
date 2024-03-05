@@ -15,7 +15,6 @@
     <title>blog_test</title>
 </head>
 <body>
-{{ for  }}
 <div style="height: 100%; position: relative; ">
 <div class="container_y" style="height: 60px; padding-top: 100px ">
     <a href="{% url 'main:blog' %}">
@@ -26,7 +25,7 @@
     {% include "blog/blog_bar.html" %}</div>
 </div>
 <div class="container2" style="height: 535px">
-    <span class="font_set" style="color: white; font-size: 60px; margin-right: 20px">🏷️ 웹문서에 최적화된 독특한 HTML 태그 10가지</span>
+    <span class="font_set" style="color: white; font-size: 60px; margin-right: 20px">{{ post.title }}</span>
         </div>
     <div style="position: absolute;
       bottom: 0;
@@ -49,30 +48,36 @@ margin-bottom: 10px; background-color: white">
             <div class="blog_index_box"><div class="bar_font blog_index_font" style="color: black; font-size: 25px">
                 <div style="margin-right: 5px">📒</div>목차
             </div></div>
-            <a href="#targetDiv"><div class="blog_index_box">
+            {% for box in post_box %}
+            <a href="#{{ box.id }}"><div class="blog_index_box">
                 <div class="blog_index_font blog_index_hover">
-                    <div style="margin-right: 5px">●</div>마우스 드래그 애니메이션
+                    <div style="margin-right: 5px">●</div>{{ box.subtitle }}
                 </div>
             </div></a>
+                <script>document.querySelector("a[href='#{{ box.id }}']").addEventListener("click", function(event) {
+    // 기본 동작(링크 이동)을 막습니다.
+    event.preventDefault();
+
+    // 대상 div의 위치를 가져옵니다.
+    const targetDiv = document.getElementById("{{ box.id }}");
+
+    // 대상 div의 위치로 스크롤을 이동합니다.
+    targetDiv.scrollIntoView({ behavior: 'smooth' });
+});</script>
+            {% endfor %}
         </div>
     </div>
     </div>
-
-<div id="targetDiv" class="container2 blog_shadow" style="padding-top: 50px; padding-bottom: 50px;
+{% for box in post_box %}
+<div id="{{ box.id }}" class="container2 blog_shadow" style="padding-top: 50px; padding-bottom: 50px;
 margin-bottom: 10px; background-color: white">
     <div>
-    <div class="blog_subtitle" style="border-bottom: #fccd4e solid 1px">마우스 드래그 애니메이션</div>
-        <div class="blog_subtitle" style="font-size: 14px;">드래그를 이용한 다양한 애니메이션</div>
+    <div class="blog_subtitle" style="border-bottom: #fccd4e solid 1px">{{ box.subtitle }}</div>
+        <div class="blog_subtitle" style="font-size: 14px;">{{ box.content | safe }}</div>
     <div style="width: 900px">
-        <p class="codepen" data-height="300" data-default-tab="html,result" data-slug-hash="vYbGOrK" data-editable="true" data-user="umxmgrsc-the-lessful" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-  <span>See the Pen <a href="https://codepen.io/umxmgrsc-the-lessful/pen/vYbGOrK">
-  Parallax scroll animation</a> by 박종우 (<a href="https://codepen.io/umxmgrsc-the-lessful">@umxmgrsc-the-lessful</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
-<script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script></div>
+        {{ box.code_set | safe }}</div>
     </div></div>
-
-
+{% endfor %}
 </body>
-{%  endblock %}
+{% endblock %}
 </html>

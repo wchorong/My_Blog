@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>메인 카테고리</title>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link rel="stylesheet" href="{% static 'css/blog/blog_post_style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/blog/mypage.css' %}" />
+</head>
+<body>
+<div class="container2" style="margin-top: 40px; margin-bottom: 40px">
+    <span class="span_font" style="font-weight: bold; font-size: 50px; color: #27AE60;">Admin Page.</span>
+
+</div>
+<div class="container_x">
+    <div class="container_x" style="width: 200px">
+        <div>
+        <div class="mypage_title">
+            <span class="span_font mypage_font">Stack</span></div>
+        <div class="container2" style="margin-top: 20px">
+            <div>
+                {% for stack in stack %}
+            <div class="span_font mypage_font">
+                <a href="{% url 'main:blog_list' cate=stack %}">{{ stack.category_name }}</a>
+            </div>
+            {% endfor %}
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="container_x" style="width: 200px">
+        <div>
+        <div class="mypage_title">
+            <span class="span_font mypage_font">Lenguge</span></div>
+        <div class="container2" style="margin-top: 20px">
+            <div>
+                {% for lenguge in lenguge %}
+            <div class="span_font mypage_font">
+                <a href="{% url 'main:blog_list' cate=lenguge %}">{{ lenguge.category_name }}</a>
+            </div>
+            {% endfor %}
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="container_x" style="width: 200px">
+        <div>
+        <div class="mypage_title">
+            <span class="span_font mypage_font">CSS</span></div>
+        <div class="container2" style="margin-top: 20px">
+            <div>
+                {% for css in css %}
+            <div class="span_font mypage_font">
+                <a href="{% url 'main:blog_list' cate=css %}">{{ css.category_name }}</a>
+            </div>
+            {% endfor %}
+                </div>
+        </div>
+        </div>
+    </div>
+    <div class="container_x" style="width: 200px">
+        <div>
+        <div class="mypage_title">
+            <span class="span_font mypage_font">Basic</span></div>
+        <div class="container2" style="margin-top: 20px">
+            <div>
+                {% for basic in basic %}
+            <div class="span_font mypage_font">
+                <a href="{% url 'main:blog_list' cate=basic %}">{{ basic.category_name }}</a>
+            </div>
+            {% endfor %}
+                </div>
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
+</html>
