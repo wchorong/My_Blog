@@ -54,8 +54,9 @@ class Category_serializer(serializers.ModelSerializer):
         fields = ("category_name", "category_title")
 
     def create(self, validated_data):
+        cate = self.context.get('cate')
         bool = Category.objects.create(category_name=validated_data['category_name'],
-                                       category_title=validated_data['category_title'],
+                                       category_title=cate,
                                        )
         return bool
 

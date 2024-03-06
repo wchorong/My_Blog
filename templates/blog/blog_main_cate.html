@@ -15,22 +15,13 @@
     <span class="span_font" style="font-weight: bold; font-size: 50px; color: #27AE60;">Write a category.</span>
 
 </div>
-<form action="{% url 'main:main_category_make' %}" method="POST" novalidate class="container2">
+<form action="{% url 'main:main_category_make' cate=cate %}" method="POST" novalidate class="container2">
         {% csrf_token %}
     <div>
     <div style="margin-bottom: 40px;">
         <label for="category_name" class="span_font crud_label">Title</label>
         <input class="title span_font" style="margin-top: 10px" type="text" id="category_name" name="category_name"
                     value="{{ form.category_name.value|default_if_none:'' }}"></div>
-        <div>
-            <label for="category_title" class="crud_label span_font"> Category</label>
-                <select class="title span_font" name="category_title" id="category_title" style="margin-top: 10px">
-                    {% for i in cate %}
-                        <option class="span_font" value="{{ i }}">{{ i }}</option>
-                    {% endfor %}
-
-                </select>
-        </div>
         <div class="container2" style="margin-top: 20px">
             <div class="crud_button container2">
         <button type="submit">MAKE</button></div></div>

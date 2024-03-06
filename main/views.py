@@ -64,15 +64,11 @@ class Main_category_make(APIView):  #카테고리 작성 페이지
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust):
-        cate = Category.CATEGORY_TITLE
-        cate_set = []
-        for i in cate:
-            cate_set.append(i[0])
-        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main_cate.html', data={'cate': cate_set})
+    def get(self, reqeust, cate):
+        return Response(status=status.HTTP_200_OK, template_name='blog/blog_main_cate.html', data={'cate': cate})
 
-    def post(self, reqeust):
-        form = Category_serializer(data=reqeust.data)
+    def post(self, reqeust, cate):
+        form = Category_serializer(data=reqeust.data, context={'cate': cate})
         if form.is_valid():
             form.save()
             return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html')

@@ -19,12 +19,13 @@
 <div class="container_x">
     <div class="container_x" style="width: 200px">
         <div>
-        <div class="mypage_title">
-            <span class="span_font mypage_font">Stack</span></div>
+        <div class="mypage_title container2">
+            <span style="margin-right: 5px" class="span_font mypage_font">Stack</span>
+            <a href="{% url 'main:main_category_make' cate="Stack" %}"><img style="height: 17px;" src="{% static 'img/yellow_plus.png'%}"></a> </div>
         <div class="container2" style="margin-top: 20px">
             <div>
                 {% for stack in stack %}
-            <div class="span_font mypage_font">
+            <div class="span_font mypage_font container_x">
                 <a href="{% url 'main:blog_list' cate=stack %}">{{ stack.category_name }}</a>
             </div>
             {% endfor %}
@@ -34,8 +35,9 @@
     </div>
     <div class="container_x" style="width: 200px">
         <div>
-        <div class="mypage_title">
-            <span class="span_font mypage_font">Lenguge</span></div>
+        <div class="mypage_title container2">
+            <span style="margin-right: 5px" class="span_font mypage_font">Lenguge</span>
+            <img style="height: 17px;" src="{% static 'img/yellow_plus.png'%}"> </div>
         <div class="container2" style="margin-top: 20px">
             <div>
                 {% for lenguge in lenguge %}
@@ -49,8 +51,9 @@
     </div>
     <div class="container_x" style="width: 200px">
         <div>
-        <div class="mypage_title">
-            <span class="span_font mypage_font">CSS</span></div>
+        <div class="mypage_title container2">
+            <span style="margin-right: 5px" class="span_font mypage_font">CSS</span>
+            <img style="height: 17px;" src="{% static 'img/yellow_plus.png'%}"> </div>
         <div class="container2" style="margin-top: 20px">
             <div>
                 {% for css in css %}
@@ -64,8 +67,9 @@
     </div>
     <div class="container_x" style="width: 200px">
         <div>
-        <div class="mypage_title">
-            <span class="span_font mypage_font">Basic</span></div>
+        <div class="mypage_title container2">
+            <span style="margin-right: 5px" class="span_font mypage_font">Basic</span>
+            <img style="height: 17px;" src="{% static 'img/yellow_plus.png'%}"> </div>
         <div class="container2" style="margin-top: 20px">
             <div>
                 {% for basic in basic %}

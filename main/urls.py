@@ -6,7 +6,7 @@ app_name = 'main'
 
 urlpatterns = [
     path('post/<int:pk>', Blog_post.as_view(), name='blog_post'),
-    path('cate_set', Main_category_make.as_view(), name='main_category_make'),
+    path('cate_set/<str:cate>', Main_category_make.as_view(), name='main_category_make'),
     path('list_crud/<str:cate>', Blog_list_crud.as_view(), name='blog_list_crud'),
     path('list/<str:cate>', Blog_list.as_view(), name='blog_list'),
     path('crud', Blog_crud.as_view(), name='blog_crud'),
