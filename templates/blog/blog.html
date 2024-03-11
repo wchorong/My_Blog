@@ -46,8 +46,11 @@
 margin-bottom: 10px; background-color: white">
         <div class="blog_index blog_shadow">
             <div class="blog_index_box"><div class="bar_font blog_index_font" style="color: black; font-size: 25px">
-                <div style="margin-right: 5px">📒</div>목차
-            </div></div>
+                <div style="margin-right: 5px">📒</div>목차</div>
+            <div class="container2" style="margin-right: 10px"><a href="{% url 'main:blog_crud' pk=blog_id%}"><img style="height: 30px;" src="{% static 'img/yellow_plus.png'%}">
+            </a>
+            </div>
+            </div>
             {% for box in post_box %}
             <a href="#{{ box.id }}"><div class="blog_index_box">
                 <div class="blog_index_font blog_index_hover">

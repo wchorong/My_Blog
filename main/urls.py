@@ -9,7 +9,7 @@ urlpatterns = [
     path('cate_set/<str:cate>', Main_category_make.as_view(), name='main_category_make'),
     path('list_crud/<str:cate>', Blog_list_crud.as_view(), name='blog_list_crud'),
     path('list/<str:cate>', Blog_list.as_view(), name='blog_list'),
-    path('crud', Blog_crud.as_view(), name='blog_crud'),
+    path('crud/<int:pk>', Blog_crud.as_view(), name='blog_crud'),
     path('', Blog_main.as_view(), name='blog'),
     path('mypage', My_page.as_view(), name='mypage'),
     path('ckeditor/', include('ckeditor_uploader.urls')),

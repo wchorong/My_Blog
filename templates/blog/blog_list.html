@@ -74,7 +74,7 @@
             <a href="{% url 'main:blog_post' pk=blog.id %}">
     <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
             <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+                <img style="border-radius: 25px 25px 0 0" src="{{ blog.img.url }}"></div>
             <div class="container2">
                 <div>
             <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">

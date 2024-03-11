@@ -37,4 +37,15 @@ width: 100px;
 	box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
+.imagePreview img{
+    height: 150px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.ckeditor div{
+    height: 150px;
+}
+
+
 

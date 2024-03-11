@@ -26,14 +26,14 @@ class Category(models.Model): # 상위 카테고리
 class Blog(BaseModel): # 하위 카테고리
     title = models.CharField(max_length=50)
     sub_title = models.TextField(blank=True)
-    img = models.ImageField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    img = models.ImageField(upload_to="Blog_image")
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.title
 
 class Sub_blog(BaseModel): # 하위 카테고리 내의 글
     subtitle = models.CharField(max_length=100)
-    content = RichTextField('내용', blank=True, null=True)
-    code_set = models.TextField('Code Pen')
-    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+    content = RichTextField('내용', blank=True)
+    code_set = models.TextField(blank=True)
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE, null=True)

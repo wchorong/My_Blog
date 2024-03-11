@@ -26,7 +26,10 @@
             <div>
                 {% for stack in stack %}
             <div class="span_font mypage_font container_x">
-                <a href="{% url 'main:blog_list' cate=stack %}">{{ stack.category_name }}</a>
+                <a style="margin-right: 5px" href="{% url 'main:blog_list' cate=stack %}">{{ stack.category_name }}</a>
+                <div class="container_y">
+            <a href="{% url 'main:blog_list_crud' cate=stack.category_name %}">
+                <img style="height: 17px;" src="{% static 'img/green_plus.png'%}"></a></div>
             </div>
             {% endfor %}
                 </div>
@@ -41,8 +44,12 @@
         <div class="container2" style="margin-top: 20px">
             <div>
                 {% for lenguge in lenguge %}
-            <div class="span_font mypage_font">
-                <a href="{% url 'main:blog_list' cate=lenguge %}">{{ lenguge.category_name }}</a>
+            <div class="span_font mypage_font container_x">
+                <a style="margin-right: 5px" href="{% url 'main:blog_list' cate=lenguge %}">{{ lenguge.category_name }}</a>
+            <div class="container_y">
+            <a href="{% url 'main:blog_list_crud' cate=lenguge.category_name %}">
+                <img style="height: 17px;" src="{% static 'img/green_plus.png'%}"></a></div>
+            </div>
             </div>
             {% endfor %}
                 </div>
@@ -57,8 +64,11 @@
         <div class="container2" style="margin-top: 20px">
             <div>
                 {% for css in css %}
-            <div class="span_font mypage_font">
-                <a href="{% url 'main:blog_list' cate=css %}">{{ css.category_name }}</a>
+            <div class="span_font mypage_font container_x">
+                <a style="margin-right: 5px" href="{% url 'main:blog_list' cate=css %}">{{ css.category_name }}</a>
+            <div class="container_y">
+            <a href="{% url 'main:blog_list_crud' cate=css.category_name %}">
+                <img style="height: 17px;" src="{% static 'img/green_plus.png'%}"></a></div>
             </div>
             {% endfor %}
                 </div>
@@ -71,10 +81,13 @@
             <span style="margin-right: 5px" class="span_font mypage_font">Basic</span>
             <img style="height: 17px;" src="{% static 'img/yellow_plus.png'%}"> </div>
         <div class="container2" style="margin-top: 20px">
-            <div>
+            <div class="container2">
                 {% for basic in basic %}
-            <div class="span_font mypage_font">
-                <a href="{% url 'main:blog_list' cate=basic %}">{{ basic.category_name }}</a>
+            <div class="span_font mypage_font container_x">
+                <a style="margin-right: 5px" href="{% url 'main:blog_list' cate=basic %}">{{ basic.category_name }}</a>
+            <div class="container_y">
+            <a href="{% url 'main:blog_list_crud' cate=basic.category_name %}">
+                <img style="height: 17px;" src="{% static 'img/green_plus.png'%}"></a></div>
             </div>
             {% endfor %}
                 </div>

@@ -15,7 +15,7 @@
     <span class="span_font" style="font-weight: bold; font-size: 50px; color: #27AE60;">Write a post.</span>
 
 </div>
-<form action="{% url 'main:blog_crud' %}" method="POST" novalidate class="container2">
+<form action="{% url 'main:blog_crud' pk=pk %}" method="POST" novalidate class="container2">
         {% csrf_token %}
     <div>
     <div style="margin-bottom: 40px;">
@@ -25,17 +25,23 @@
     <div style="display: block; margin-bottom: 40px" >
         <div style="margin-bottom: 10px;">
         <span class="span_font" style="font-size: 20px; font-weight: bold">Content</span></div>
-    {{ crud.content }}</div>
+    <textarea class="ckeditor" name="content" id="content">{{ form.content.value|default_if_none:'' }}</textarea></div>
     <div style="margin-bottom: 40px">
         <label for="codepen" class="span_font crud_label">Code pen</label>
-    <textarea style="margin-top: 10px" class="codepen" id="codepen" name="codepen">
-        {{ form.codepen.value|default_if_none:'' }}
+    <textarea style="margin-top: 10px" class="codepen" id="codepen" name="code_set">
+        {{ form.code_set.value|default_if_none:'' }}
     </textarea></div>
         <div class="container2" style="margin-top: 20px">
             <div class="crud_button container2">
         <button type="submit">MAKE</button></div></div>
 </div>
 </form>
+<script>// CKEditor를 textarea에 적용
+  ClassicEditor
+    .create(document.querySelector('#content'))
+    .catch(error => {
+      console.error(error);
+    });</script>
 </body>
 {% endblock %}
 </html>

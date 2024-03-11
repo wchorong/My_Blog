@@ -172,6 +172,10 @@ a {
 .blog_index_box:not(:last-child){
     border-bottom: #f7d8ad solid 1px;
 }
+.blog_index_box{
+    display: flex;
+    justify-content: space-between;
+}
 
 .blog_index_font{
     margin: 10px;
