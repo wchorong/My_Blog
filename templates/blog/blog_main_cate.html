@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "blog/blog_base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>메인 카테고리</title>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+<script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+<link rel="stylesheet" href="{% static 'css/blog/blog_post_style.css' %}" />
+</head>
+<body>
+<div class="container2" style="margin-top: 40px; margin-bottom: 40px">
+    <span class="span_font" style="font-weight: bold; font-size: 50px; color: #27AE60;">Write a category.</span>
+
+</div>
+<form action="{% url 'main:main_category_make' cate=cate %}" method="POST" novalidate class="container2">
+        {% csrf_token %}
+    <div>
+    <div style="margin-bottom: 40px;">
+        <label for="category_name" class="span_font crud_label">Title</label>
+        <input class="title span_font" style="margin-top: 10px" type="text" id="category_name" name="category_name"
+                    value="{{ form.category_name.value|default_if_none:'' }}"></div>
+        <div class="container2" style="margin-top: 20px">
+            <div class="crud_button container2">
+        <button type="submit">MAKE</button></div></div>
+</div>
+</form>
+</body>
+{% endblock %}
+</html>

@@ -32,7 +32,7 @@
 <div class="container2" style="width: 1200px">
 <div style="display: block;">
     <div class="floating-div container2" id="animatedDiv" style="width: 100%">
-        <span>Post List</span>
+        <span>{{ title_name }}</span>
     </div>
 <div class="list-line">
 <img src="{% static 'img/list_bottom_line.png' %}"></div>
@@ -69,103 +69,23 @@
     </div></div>
         <div class="container2">
     <div class="list_con" style="width: 1120px">
+        {% for blog in blog %}
         <div class="scrolling-div">
-            <a href="{% url 'main:blog_post' %}">
+            <a href="{% url 'main:blog_post' pk=blog.id %}">
     <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
             <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
+                <img style="border-radius: 25px 25px 0 0" src="{{ blog.img.url }}"></div>
             <div class="container2">
                 <div>
             <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
                 <div style="color: black;
              font-weight: bold; font-size: 18px; height: 60px">
-                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
+                💻 {{ blog.title }}</div>
                 <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
                  overflow: hidden; text-overflow: ellipsis;">
-                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
-                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
-                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
+                {{ blog.sub_title }}</div>
             </div></div></div></div></a></div>
-    <div class="scrolling-div">
-    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
-            <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
-            <div class="container2">
-                <div>
-            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
-                <div style="color: black;
-             font-weight: bold; font-size: 18px; height: 60px">
-                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
-                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
-                 overflow: hidden; text-overflow: ellipsis;">
-                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
-                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
-                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
-            </div></div></div></div></div>
-    <div class="scrolling-div">
-    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
-            <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
-            <div class="container2">
-                <div>
-            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
-                <div style="color: black;
-             font-weight: bold; font-size: 18px; height: 60px">
-                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
-                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
-                 overflow: hidden; text-overflow: ellipsis;">
-                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
-                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
-                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
-            </div></div></div></div></div>
-        <div class="scrolling-div">
-    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
-            <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
-            <div class="container2">
-                <div>
-            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
-                <div style="color: black;
-             font-weight: bold; font-size: 18px; height: 60px">
-                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
-                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
-                 overflow: hidden; text-overflow: ellipsis;">
-                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
-                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
-                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
-            </div></div></div></div></div>
-    <div class="scrolling-div">
-    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
-            <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
-            <div class="container2">
-                <div>
-            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
-                <div style="color: black;
-             font-weight: bold; font-size: 18px; height: 60px">
-                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
-                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
-                 overflow: hidden; text-overflow: ellipsis;">
-                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
-                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
-                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
-            </div></div></div></div></div>
-    <div class="scrolling-div">
-    <div class="blog_set hover-shadow" style="width: 350px; height: 450px; border: lightgray solid 0.5px; border-radius: 25px">
-            <div style="height: 200px; position: relative; overflow: hidden">
-                <img style="border-radius: 25px 25px 0 0" src="{% static 'img/blog_page2.png' %}"></div>
-            <div class="container2">
-                <div>
-            <div class="span_font" style="margin-top: 20px; width: 300px; height: 200px;">
-                <div style="color: black;
-             font-weight: bold; font-size: 18px; height: 60px">
-                💻 Window 10 컴퓨터 부팅 / 절전 시간 확인하기</div>
-                <div class="span_font" style="color: gray; margin-top: 5px; font-size: 15px; height: 135px; word-wrap: break-word;
-                 overflow: hidden; text-overflow: ellipsis;">
-                가끔 사내에서 출퇴근을 하였는데도 사원의 실수로 출퇴근을 찍지 않았거나 혹은 전산 오류로 인해 기록이 남아 있지 않은 경우,
-                    자신의 출퇴근 기록을 증빙할 수 있는 자료를 요청할 수 있다. 이에 대한 대표적인 증명 방법으로 자신의 컴퓨터 시스템 부팅 기록을 확인하
-                    는 것인데, 이는 윈도우 OS의 이벤트 뷰어를 통해 확인 할 수가 있다.</div>
-            </div></div></div></div></div>
+        {% endfor %}
 
     </div></div></div></div>
 {% endblock %}

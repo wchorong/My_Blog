@@ -4,6 +4,7 @@
 {% load static %}
 {% block content %}
 <head>
+<link rel="stylesheet" href="{% static 'css/blog/blog_main.css' %}" />
 <style>
 </style>
     <meta charset="UTF-8">
@@ -40,7 +41,12 @@
     </div></a>
     <div style="left: 55%;transform: translateX(-55%); position: absolute">
     {% include "blog/blog_bar.html" %}</div>
-</div>
+</div>{% if user.is_authenticated %}
+        <div style="left: 93%;transform: translateX(-93%); top: 6%; position: absolute; border: solid white;
+            border-radius: 10px">
+        <div>
+        <a href="{% url 'main:mypage' %}"><img style="height: 100px; opacity: 1; max-width: none" src="{% static 'img/admin_image.png'%}"></a>
+    </div></div>{% endif %}
 <div style="height: 150px"></div>
 <div class="container" style="font-size: 30px">
     <p>Coding is <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
@@ -97,7 +103,7 @@
                 <img style="height: 50%; width: 50%" src="{% static 'img/aws.png' %}"></div>
                 <div class="container2"><span class="pg3_font">Server</span></div></div>
             </div></a>
-            <a href="{% url 'main:blog_list' %}">
+            <a href="#">
             <div class="page3_box blog_set1 hover-shadow container2">
                 <div>
                     <div class="container2">
@@ -141,5 +147,5 @@
     </div>
     </div>
 </body>
-{%  endblock %}
+{% endblock %}
 </html>
