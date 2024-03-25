@@ -1,5 +1,6 @@
 from django.urls import path, include
-from .views import Blog_main, Blog_post, Blog_list, Blog_crud, Main_category_make, Blog_list_crud, My_page
+from .views import Blog_main, Blog_post, Blog_list, Blog_crud, Main_category_make, Blog_list_crud, My_page,\
+    Re_post_list
 from django.conf.urls.static import static
 from django.conf import settings
 app_name = 'main'
@@ -12,5 +13,6 @@ urlpatterns = [
     path('crud/<int:pk>', Blog_crud.as_view(), name='blog_crud'),
     path('', Blog_main.as_view(), name='blog'),
     path('mypage', My_page.as_view(), name='mypage'),
+    path('re_post_list/<int:pk>', Re_post_list.as_view(), name='re_post_list'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

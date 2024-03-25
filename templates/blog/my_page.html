@@ -29,6 +29,8 @@
                 <a style="margin-right: 5px" href="{% url 'main:blog_list' cate=stack %}">{{ stack.category_name }}</a>
                 <div class="container_y">
             <a href="{% url 'main:blog_list_crud' cate=stack.category_name %}">
+                <img style="height: 17px;" src="{% static 'img/green_plus.png'%}"></a>
+                <a href="{% url 'main:blog_list' cate='re_'|add:stack.category_name %}">
                 <img style="height: 17px;" src="{% static 'img/green_plus.png'%}"></a></div>
             </div>
             {% endfor %}
