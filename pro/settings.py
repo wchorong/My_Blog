@@ -88,10 +88,10 @@ WSGI_APPLICATION = 'pro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'web_data',
-        'USER' : 'root',
-        'PASSWORD' : 'Whddn407@', # 설정한 비밀번호로 적어주면 된다.
-        'HOST' : '127.0.0.1',
+        'NAME': 'web',
+        'USER' : 'wchorong',
+        'PASSWORD' : 'whddn407@', # 설정한 비밀번호로 적어주면 된다.
+        'HOST' : 'db-m6bjs.pub-cdb.ntruss.com',
         'PORT' : '3306',
     }
 }
