@@ -1,4 +1,5 @@
 asgiref
+certifi
 cffi
 charset-normalizer
 cmake
@@ -9,6 +10,7 @@ django-allauth
 django-bootstrap5
 django-ckeditor
 django-js-asset
+django_debug_toolbar
 djangorestframework
 idna
 oauthlib
