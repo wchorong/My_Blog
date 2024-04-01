@@ -90,7 +90,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'web',
         'USER' : 'wchorong',
-        'PASSWORD' : 'whddn407@', # 설정한 비밀번호로 적어주면 된다.
+        'PASSWORD':'Whddn407@', # 설정한 비밀번호로 적어주면 된다.
         'HOST' : 'db-m6bjs.pub-cdb.ntruss.com',
         'PORT' : '3306',
     }
