@@ -24,6 +24,7 @@ urlpatterns = [
     path('blog/', include('main.urls')),
     path('', Blog_main.as_view(), name='Blog'),
     path('ckeditor/', include('ckeditor_uploader.urls')),
+path('account/', include('account.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 if settings.DEBUG:
     if "debug_toolbar" in settings.INSTALLED_APPS:

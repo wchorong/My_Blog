@@ -14,7 +14,7 @@ from main.forms import PostAdminForm
 
 class Blog_main(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    def get(self, reqeust):
+    def get(self, request):
         stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(category_title="Language")
         css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
         return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html',
@@ -22,7 +22,7 @@ class Blog_main(APIView):
 
 class Blog_post(APIView): # 블로그
     renderer_classes = [TemplateHTMLRenderer]
-    def get(self, reqeust, pk):
+    def get(self, request, pk):
         post = Blog.objects.get(id=pk)
         post_box = Sub_blog.objects.filter(blog=post)
         stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(
@@ -35,7 +35,7 @@ class Blog_post(APIView): # 블로그
 class Blog_list(APIView): # 블로그 리스트 & 블로그 리스트 수정
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust, cate):
+    def get(self, request, cate):
         stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(
             category_title="Language")
         css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
@@ -57,14 +57,14 @@ class Blog_crud(APIView): # 블로그내 블록 추가
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust, pk):
+    def get(self, request, pk):
         crud_ser = PostAdminForm
         form = Blog_Serializer()
         return Response(status=status.HTTP_200_OK, template_name='blog/CRUD.html', data={'crud': crud_ser, 'pk': pk,
                                                                                          'form': form})
 
-    def post(self, reqeust, pk):
-        form = Blog_Serializer(data=reqeust.data, context={'pk': pk})
+    def post(self, request, pk):
+        form = Blog_Serializer(data=request.data, context={'pk': pk})
         if form.is_valid():
             form.save()
             return redirect('main:blog_post', pk=pk)
@@ -78,11 +78,11 @@ class Main_category_make(APIView):  #카테고리 작성 페이지
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust, cate):
+    def get(self, request, cate):
         return Response(status=status.HTTP_200_OK, template_name='blog/blog_main_cate.html', data={'cate': cate})
 
-    def post(self, reqeust, cate):
-        form = Category_serializer(data=reqeust.data, context={'cate': cate})
+    def post(self, request, cate):
+        form = Category_serializer(data=request.data, context={'cate': cate})
         if form.is_valid():
             form.save()
             return Response(status=status.HTTP_200_OK, template_name='blog/blog_main.html', data={'form': form})
@@ -93,7 +93,7 @@ class Blog_list_crud(APIView):
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust, cate):
+    def get(self, request, cate):
         return Response(status=status.HTTP_200_OK, template_name='blog/blog_sub_cate.html', data={"cate": cate})
 
     def post(self, request, cate):
@@ -111,7 +111,7 @@ class My_page(APIView):
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust):
+    def get(self, request):
         stack, language = Category.objects.filter(category_title="Stack"), Category.objects.filter(
             category_title="Language")
         css, basic = Category.objects.filter(category_title="CSS"), Category.objects.filter(category_title="Basic")
@@ -124,14 +124,14 @@ class Re_post_list(APIView):
     permission_classes = [IsAuthenticated]
     renderer_classes = [TemplateHTMLRenderer]
 
-    def get(self, reqeust, pk):
+    def get(self, request, pk):
         post = Blog.objects.get(id=pk)
         form = Title_Serializer(instance=post)
         return Response(status=status.HTTP_200_OK, template_name='blog/re_post_list.html', data={'form': form})
 
-    def post(self, reqeust, pk):
+    def post(self, request, pk):
         post = Blog.objects.get(id=pk)
-        form = Title_Serializer(instance=post, data=reqeust.data)
+        form = Title_Serializer(instance=post, data=request.data)
         if form.is_valid():
             form.save()
             return redirect('main:mypage')
