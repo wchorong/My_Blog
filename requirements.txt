@@ -26,3 +26,4 @@ sqlparse
 typing_extensions
 urllib3
 wincertstore
+django-environ
