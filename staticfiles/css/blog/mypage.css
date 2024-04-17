@@ -1,0 +1,11 @@
+.mypage_font{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.mypage_title{
+    border: solid black;
+    width: 160px;
+    text-align: center;
+    border-radius: 10px;
+}

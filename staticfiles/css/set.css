@@ -1,0 +1,72 @@
+.container2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+.container_x {
+    display: flex;
+      justify-content: center;
+}
+.container_y {
+    display: flex;
+      align-items: center;
+}
+.span_font {
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+.en_font{
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    opacity: 0.8;
+    animation: cloudMove 2s ease-in-out infinite alternate;
+}
+.en_font2{
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    opacity: 0.8;
+    animation: cloudMove 3s ease-in-out infinite alternate;
+}
+@keyframes cloudMove {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(0, 10px);
+            }
+        }
+
+.center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+a:hover {
+    text-decoration: underline;
+}
+.fade_in {
+  opacity: 0; /* 초기에는 투명한 상태 */
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* 시작할 때 투명한 상태 */
+  }
+  to {
+    opacity: 1; /* 서서히 나타나는 상태 */
+  }
+}
+
+.shadow{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.blue_image{
+    background-image: url("static/img/blue.png")
+}
